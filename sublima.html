@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUBLIMA Servicio de sublimación</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#fdf5eb',
+                            200: '#f7e7d3',
+                            300: '#f1d6b8',
+                        },
+                        brand: {
+                            orange: '#e86235',
+                            dark: '#2c1e16',
+                            muted: '#6b5a50',
+                            cardBg: '#fffbf6',
+                            cardBorder: '#f2e2d0',
+                            noticeBg: '#faebd7',
+                            noticeBorder: '#eed5ba',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #fdf5eb;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: #2c1e16;
+        }
+
+        /* Custom scrollbar for sidebar */
+        .sidebar-scroll::-webkit-scrollbar {
+            width: 5px;
+        }
+        .sidebar-scroll::-webkit-scrollbar-track {
+            background: #fdf5eb;
+        }
+        .sidebar-scroll::-webkit-scrollbar-thumb {
+            background: #e2cca8;
+            border-radius: 10px;
+        }
+
+        /* Smooth transition for drawer */
+        .drawer-transform {
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+</head>
+<body class="relative min-h-screen pb-20">
+
+    <!-- ================= NAVBAR ================= -->
+    <header class="sticky top-0 z-30 bg-[#fdf5eb]/95 backdrop-blur-sm border-b border-[#f1d6b8]/60 px-4 lg:px-12 py-3.5">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-[#2c1e16] text-[#fdf5eb] flex items-center justify-center font-serif text-xs font-bold tracking-wider uppercase border border-[#e86235]">
+                    EGL
+                </div>
+                <span class="font-serif font-bold tracking-widest text-base sm:text-lg text-[#2c1e16] uppercase">
+                    Estudio Gráfico Lumière
+                </span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-1 lg:gap-2 text-xs lg:text-sm font-medium text-[#6b5a50]">
+                <a href="#inicio" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:text-[#2c1e16] transition-colors">
+                    <i data-lucide="home" class="w-4 h-4"></i>
+                    Inicio
+                </a>
+                <a href="#quienes-somos" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:text-[#2c1e16] transition-colors">
+                    <i data-lucide="users" class="w-4 h-4"></i>
+                    Quiénes somos
+                </a>
+                <a href="#catalogo" class="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#f1d6b8]/70 text-[#2c1e16] font-semibold border border-[#e86235]/30">
+                    <i data-lucide="layout-grid" class="w-4 h-4 text-[#e86235]"></i>
+                    Catálogo
+                </a>
+                <a href="#preguntas" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:text-[#2c1e16] transition-colors">
+                    <i data-lucide="help-circle" class="w-4 h-4"></i>
+                    Preguntas
+                </a>
+                <a href="#contacto" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full hover:text-[#2c1e16] transition-colors">
+                    <i data-lucide="message-square" class="w-4 h-4"></i>
+                    Contacto
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="max-w-3xl mx-auto px-4 pt-8 space-y-6">
+
+        <!-- Banner 1: Mirá nuestros diseños -->
+        <div class="bg-[#faebd7] border border-[#f1d6b8] rounded-2xl p-4 sm:p-5 flex items-center justify-between shadow-sm">
+            <div class="flex items-center gap-3.5">
+                <div class="w-8 h-8 rounded-lg bg-blue-500 text-white flex items-center justify-center shrink-0">
+                    <i data-lucide="arrow-right-left" class="w-4 h-4"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-xs sm:text-sm uppercase tracking-wide text-[#2c1e16]">
+                        Mirá nuestros diseños
+                    </h3>
+                    <p class="text-xs sm:text-sm text-[#6b5a50] mt-0.5">
+                        Elegí el diseño que más te guste (podemos modificar la paleta de colores y las frases)
+                    </p>
+                </div>
+            </div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-[#6b5a50] shrink-0"></i>
+        </div>
+
+        <!-- Banner 2: Atención Demoras -->
+        <div class="bg-[#faebd7] border border-[#f1d6b8] rounded-2xl p-5 sm:p-6 shadow-sm space-y-3">
+            <div class="flex items-center gap-2 font-bold text-xs sm:text-sm text-[#2c1e16] uppercase tracking-wide">
+                <span class="text-amber-600 text-base">⚠️</span>
+                <span>Atención · Demoras (LEER)</span>
+            </div>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-[#2c1e16]">
+                <li class="flex items-start gap-2">
+                    <span class="text-sky-600 shrink-0">💧</span>
+                    <span><strong>Carteles a prueba de agua:</strong> 3 días hábiles una vez definido el diseño (Hasta las 16hs)</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="text-sky-600 shrink-0">💧</span>
+                    <span><strong>Carteles entrega rápida:</strong> EN EL DÍA – ADICIONAL DE $12.000.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="shrink-0">📜</span>
+                    <span><strong>Otros productos personalizados:</strong> 4 días hábiles.</span>
+                </li>
+            </ul>
+
+            <p class="text-xs text-[#6b5a50] pt-2 border-t border-[#eed5ba]/60">
+                Si llevás varios productos aplicamos descuentos personalizados. Si llevás por cantidad, también aplicamos descuentos personalizados.
+            </p>
+        </div>
+
+        <!-- Section: ¿Cómo es el proceso? -->
+        <section class="pt-4 space-y-6">
+            <h2 class="font-serif text-xl sm:text-2xl font-bold text-[#2c1e16]">
+                ¿Cómo es el proceso?
+            </h2>
+
+            <div class="bg-[#fffbf6] border border-[#f2e2d0] rounded-2xl p-4 sm:p-6 shadow-sm space-y-4">
+                
+                <!-- Paso 1 -->
+                <div class="flex items-start gap-4 pb-3.5 border-b border-[#f2e2d0]/70">
+                    <div class="w-7 h-7 rounded-full bg-[#e86235] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        1
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#2c1e16] leading-relaxed">
+                        <strong>Brindamos información y te compartimos este catálogo,</strong> podrás ver productos, medidas y diseños.
+                    </p>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="flex items-start gap-4 pb-3.5 border-b border-[#f2e2d0]/70">
+                    <div class="w-7 h-7 rounded-full bg-[#e86235] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        2
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#2c1e16] leading-relaxed">
+                        <strong>Se seña la mitad</strong> para iniciar el diseño.
+                    </p>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="flex items-start gap-4 pb-3.5 border-b border-[#f2e2d0]/70">
+                    <div class="w-7 h-7 rounded-full bg-[#e86235] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        3
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#2c1e16] leading-relaxed">
+                        Una vez definido el diseño <strong>empieza a correr el tiempo de demora.</strong> Cuanto más tardes en elegir el diseño, más tiempo demora en estar listo el pedido.
+                    </p>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="flex items-start gap-4 pb-3.5 border-b border-[#f2e2d0]/70">
+                    <div class="w-7 h-7 rounded-full bg-[#e86235] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        4
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#2c1e16] leading-relaxed">
+                        <strong>Te enviamos una foto</strong> del pedido listo.
+                    </p>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="flex items-start gap-4 pb-3.5 border-b border-[#f2e2d0]/70">
+                    <div class="w-7 h-7 rounded-full bg-[#e86235] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        5
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#2c1e16] leading-relaxed">
+                        <strong>Se termina de pagar</strong> cuando el pedido está listo. Algunas personas dejan su marco para retirar después de un mes y no hay problema, siempre que se abone el total una vez finalizado el trabajo.
+                    </p>
+                </div>
+
+                <!-- Paso 6 -->
+                <div class="flex items-start gap-4">
+                    <div class="w-7 h-7 rounded-full bg-[#e86235] text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5">
+                        6
+                    </div>
+                    <p class="text-xs sm:text-sm text-[#2c1e16] leading-relaxed">
+                        <strong>Retirá en nuestra dirección en persona o con Uber</strong> (en el GPS colocá Famatina 270, es esquina Famatina y pasaje Bibliotecarios Argentinos). <strong>NO GESTIONAMOS EL UBER,</strong> deberás pedirlo e indicarnos cuando esté cerca o compartirnos el recorrido.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FLOATING WHATSAPP BUTTON ================= -->
+    <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-5 left-5 z-40 w-12 h-12 bg-emerald-500 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-emerald-600 transition-all hover:scale-105"
+       aria-label="Contacto WhatsApp">
+        <i data-lucide="message-circle" class="w-6 h-6 fill-current"></i>
+    </a>
+
+    <!-- ================= SIDEBAR DRAWER: PRODUCTOS Y PRECIOS ================= -->
+    <aside id="sidebar-drawer" class="fixed top-0 right-0 h-full w-80 sm:w-96 bg-[#fdf5eb] shadow-2xl z-50 border-l border-[#f1d6b8] flex flex-col drawer-transform translate-x-0">
+        
+        <!-- Toggle Tab Button on edge -->
+        <button id="toggle-btn" onclick="toggleDrawer()" 
+                class="absolute -left-10 top-32 bg-[#e86235] text-white px-2 py-4 rounded-l-xl font-medium text-xs tracking-wider shadow-md hover:bg-[#d05228] transition-colors flex flex-col items-center gap-1 uppercase"
+                style="writing-mode: vertical-rl;">
+            <span>Precios</span>
+        </button>
+
+        <!-- Sidebar Header -->
+        <div class="p-4 border-b border-[#f1d6b8] flex items-center justify-between bg-[#fdf5eb]">
+            <h2 class="font-serif font-bold text-base text-[#2c1e16]">
+                Productos y precios
+            </h2>
+            <button onclick="toggleDrawer()" class="text-xs text-[#6b5a50] hover:text-[#2c1e16] px-2 py-1 rounded border border-[#f1d6b8] bg-[#fffbf6]">
+                Ocultar
+            </button>
+        </div>
+
+        <!-- Sidebar List Scrollable -->
+        <div class="flex-1 overflow-y-auto sidebar-scroll p-4 space-y-6">
+
+            <!-- Categoria 1: Cartelería -->
+            <div class="space-y-3">
+                <h3 class="font-bold text-xs uppercase tracking-wider text-[#6b5a50] pb-1 border-b border-[#f1d6b8]">
+                    Cartelería
+                </h3>
+
+                <div class="space-y-2">
+                    <!-- Item 1 -->
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=100&q=80" alt="Cartel franja" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16]">Cartel franja</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#e86235]">$35.000</span>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=100&q=80" alt="Marco selfie" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16]">Marco selfie</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#e86235]">$40.000</span>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=100&q=80" alt="Marco Selfie Personalizado" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16] max-w-[150px]">Marco Selfie Personalizado simple de nuestros diseños</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#e86235]">$45.000</span>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=100&q=80" alt="Marco Selfie con diseño" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16] max-w-[150px]">Marco Selfie Personalizado con Servicio de diseño gráfico</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#e86235]">$50.000</span>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=100&q=80" alt="Marco Selfie ilimitado" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16] max-w-[150px]">Marco Selfie Personalizado con diseño gráfico ilimitado (por 12 horas)</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#e86235]">+$55.000</span>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=100&q=80" alt="Marco selfie circular" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16]">Marco selfie circular grande Personalizado</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#e86235]">$60.000</span>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=100&q=80" alt="Medidas especiales" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16]">Medidas especiales y otros materiales</span>
+                        </div>
+                        <span class="text-xs font-medium text-[#6b5a50] italic">Consultar</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria 2: Adicionales -->
+            <div class="space-y-3">
+                <h3 class="font-bold text-xs uppercase tracking-wider text-[#6b5a50] pb-1 border-b border-[#f1d6b8]">
+                    Adicionales
+                </h3>
+
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-[#faebd7] flex items-center justify-center text-[#e86235] font-bold text-xs">
+                                🛡️
+                            </div>
+                            <span class="text-xs font-semibold text-[#2c1e16]">Reforzado</span>
+                        </div>
+                        <span class="text-xs font-medium text-[#6b5a50]">Sin costo</span>
+                    </div>
+
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=100&q=80" alt="Flores artificiales" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16] max-w-[150px]">Flores artificiales paga un adicional</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#e86235]">+$35.000</span>
+                    </div>
+
+                    <div class="flex items-center justify-between bg-[#fffbf6] p-2.5 rounded-xl border border-[#f2e2d0] shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=100&q=80" alt="Listo en el día" class="w-10 h-10 rounded-lg object-cover">
+                            <span class="text-xs font-semibold text-[#2c1e16] max-w-[150px]">Listo en el día paga un adicional</span>
+                        </div>
+                        <span class="text-xs font-bold text-[#e86235]">+$12.000</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoria 3: Estampados -->
+            <div class="space-y-3 pb-6">
+                <h3 class="font-bold text-xs uppercase tracking-wider text-[#6b5a50] pb-1 border-b border-[#f1d6b8]">
+                    Estampados
+                </h3>
+                <p class="text-xs text-[#6b5a50] italic">
+                    Consultar por prendas y diseños disponibles.
+                </p>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- JavaScript para interactividad -->
+    <script>
+        // Inicializar iconos
+        lucide.createIcons();
+
+        let isOpen = true;
+
+        function toggleDrawer() {
+            const drawer = document.getElementById('sidebar-drawer');
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                drawer.classList.remove('translate-x-full');
+                drawer.classList.add('translate-x-0');
+            } else {
+                drawer.classList.remove('translate-x-0');
+                drawer.classList.add('translate-x-full');
+            }
+        }
+    </script>
+</body>
+</html>
